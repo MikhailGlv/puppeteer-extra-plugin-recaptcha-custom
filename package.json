@@ -10,9 +10,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/berstend/puppeteer-extra.git"
+    "url": "git+https://github.com/MikhailGlv/puppeteer-extra-plugin-recaptcha-custom.git"
   },
-  "homepage": "https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-recaptcha",
+  "homepage": "https://github.com/MikhailGlv/puppeteer-extra-plugin-recaptcha-custom",
   "author": "berstend",
   "license": "MIT",
   "scripts": {
@@ -77,8 +77,5 @@
   },
   "peerDependencies": {
     "puppeteer-extra": "*"
-  },
-  "bugs": {
-    "url": "https://github.com/berstend/puppeteer-extra/issues"
   }
 }
