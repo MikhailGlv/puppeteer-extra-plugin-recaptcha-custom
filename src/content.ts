@@ -222,6 +222,7 @@ export class RecaptchaContentScript {
           if (!info) return
           const $input = this.getResponseInputById(info.id)
           info.hasResponseElement = !!$input
+          info.responseElementContent = $input?$input.innerHTML:undefined;
           return info
         })
         .filter(info => info)

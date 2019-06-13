@@ -57,6 +57,7 @@ export interface CaptchaInfo {
   sitekey?: string
   callback?: string | Function
   hasResponseElement?: boolean
+  responseElementContent?: string 
   url?: string
   display?: {
     size?: string

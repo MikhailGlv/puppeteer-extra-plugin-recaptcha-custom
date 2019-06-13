@@ -26,6 +26,7 @@ test('will detect captchas', async t => {
   const c = captchas[0]
   t.is(c.callback, 'onSuccess')
   t.is(c.hasResponseElement, true)
+  t.is(c.responseElementContent, '')
   t.is(c.url, url)
   t.true(c.sitekey && c.sitekey.length > 5)
 
