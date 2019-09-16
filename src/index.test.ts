@@ -14,7 +14,7 @@ test('will detect captchas', async t => {
     args: PUPPETEER_ARGS,
     headless: true
   })
-  const page: types.Page = await browser.newPage()
+  const page: types.Page = (await browser.pages())[0]
 
   const url = 'https://www.google.com/recaptcha/api2/demo'
   await page.goto(url, { waitUntil: 'networkidle0' })

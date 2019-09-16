@@ -1,3 +1,4 @@
+import {Browser} from "puppeteer"
 import { PuppeteerExtraPlugin } from 'puppeteer-extra-plugin'
 
 import * as types from './types'
@@ -189,6 +190,22 @@ export class PuppeteerExtraPluginRecaptcha extends PuppeteerExtraPlugin {
 
     // Add convenience methods that wraps all others
     page.solveRecaptchas = async () => this.solveRecaptchas(page)
+  }
+
+  async onBrowser (browser: Browser){
+    const pages = (await browser.pages()) as types.Page[]
+    for(let page of pages){
+      page.findRecaptchas = async () => this.findRecaptchas(page)
+      page.getRecaptchaSolutions = async (
+          captchas: types.CaptchaInfo[],
+          provider?: types.SolutionProvider
+      ) => this.getRecaptchaSolutions(captchas, provider)
+      page.enterRecaptchaSolutions = async (solutions: types.CaptchaSolution[]) =>
+          this.enterRecaptchaSolutions(page, solutions)
+
+      // Add convenience methods that wraps all others
+      page.solveRecaptchas = async () => this.solveRecaptchas(page)
+    }
   }
 }
 
